@@ -1,6 +1,7 @@
 package ch.idsia.scenarios;
 
 import bu.marp.StrollingAgent;
+import bu.marp.LearningAgent;
 import bu.marp.ReactiveAgent;
 import competition.cig.robinbaumgarten.AStarAgent;
 import competition.cig.sergeykarakovskiy.SergeyKarakovskiy_JumpingAgent;
@@ -21,23 +22,32 @@ import ch.idsia.tools.EvaluationOptions;
 public class Play {
 
     public static void main(String[] args) {
-        Agent controller = new ReactiveAgent();
+        Agent controller = new LearningAgent();
         if (args.length > 0) {
             controller = AgentsPool.load (args[0]);
             AgentsPool.addAgent(controller);
         }
         EvaluationOptions options = new CmdLineOptions(new String[0]);
-        options.setAgent(controller);
+        
         Task task = new ProgressTask(options);
         options.setMaxFPS(false);
         options.setVisualization(true);
-        options.setNumberOfTrials(1);
-        options.setMatlabFileName("");
-        options.setLevelRandSeed((int) (Math.random () * 2) + 18);//19,15,18
+        options.setNumberOfTrials(10);
+        options.setLevelRandSeed(34);//19,15,18
         //options.setLevelRandSeed((int) (Math.random () * Integer.MAX_VALUE));
-        options.setLevelDifficulty(0);
+        options.setLevelDifficulty(3);
+        options.setExitProgramWhenFinished(false);
+    	options.setAgent(controller);
         task.setOptions(options);
-
-        System.out.println ("Score: " + task.evaluate (controller)[0]);
+        
+        while(true) {
+        	try {
+	        task.evaluate (controller);
+        	}
+        	catch(IllegalArgumentException e){
+        		System.out.println("goteem");
+        	}
+        }
     }
 }
+ 

@@ -16,7 +16,7 @@ public class Mario extends Sprite
     public static int lives = 1024;
 //    public static int numberOfAttempts = 0;
 //    public static String levelString = "none";
-    private int status = STATUS_RUNNING;
+    public static int status = 2;
     private final int FractionalPowerUpTime = 0;
     public static int gainedMushrooms;
     public static int gainedFlowers;

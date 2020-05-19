@@ -58,7 +58,7 @@ public class ReactiveAgent implements Agent
 				||(scene[14][21]==34)
 				||(scene[13][21]==34);
 		
-		System.out.println("x"+Arrays.deepToString(scene)+"\n");
+		//System.out.println("x"+Arrays.deepToString(scene)+"\n");
 	
 		if(!marioOnGround) { //prevent Mario from making short jumps
 			action[Mario.KEY_JUMP]= true;
@@ -110,7 +110,7 @@ public class ReactiveAgent implements Agent
 		}
 	
 		action[Mario.KEY_RIGHT] = true; //always move to the right
-		try{Thread.sleep(50);}catch (InterruptedException e) {}
+		
         return action;
     }
 
