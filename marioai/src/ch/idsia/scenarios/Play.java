@@ -33,11 +33,12 @@ public class Play {
         options.setMaxFPS(false);
         options.setVisualization(true);
         options.setNumberOfTrials(10);
-        options.setLevelRandSeed(34);//19,15,18
+        options.setLevelRandSeed(1);//19,15,18
         //options.setLevelRandSeed((int) (Math.random () * Integer.MAX_VALUE));
         options.setLevelDifficulty(3);
         options.setExitProgramWhenFinished(false);
     	options.setAgent(controller);
+    	
         task.setOptions(options);
         
         while(true) {
