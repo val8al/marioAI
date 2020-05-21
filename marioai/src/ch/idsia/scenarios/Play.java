@@ -36,6 +36,7 @@ public class Play {
         options.setLevelRandSeed(1);//19,15,18
         //options.setLevelRandSeed((int) (Math.random () * Integer.MAX_VALUE));
         options.setLevelDifficulty(3);
+        options.setLevelLength(100);
         options.setExitProgramWhenFinished(false);
     	options.setAgent(controller);
     	
